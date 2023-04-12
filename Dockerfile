@@ -14,7 +14,6 @@ RUN apt-get update
 RUN apt-get install -y curl wget git ssh tmux
 
 RUN chown -R ${NB_UID} ${HOME}
-RUN tmux -S ${HOME}/pair detach
 
 USER ${USER}
 
