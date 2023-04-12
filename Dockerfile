@@ -1,6 +1,5 @@
 FROM jupyter/base-notebook:latest
 
-
 ARG NB_USER=jovyan
 ARG NB_UID=1000
 ENV USER ${NB_USER}
@@ -13,8 +12,9 @@ USER root
 RUN apt-get update
 RUN apt-get install -y curl wget git ssh tmux
 
-RUN chown -R ${NB_UID} ${HOME}
+COPY *.md ${HOME}/Notebooks/
 
+RUN chown -R ${NB_UID} ${HOME}
 USER ${USER}
 
 # Set root to Notebooks
